@@ -378,6 +378,9 @@ export default function CadastroRestaurantePage() {
       if (data.success) {
         try {
           localStorage.setItem('saas_current_user', JSON.stringify(data.user));
+          try {
+            window.document.cookie = `saas_user=${encodeURIComponent(JSON.stringify(data.user))}; path=/; max-age=2592000; SameSite=Lax`;
+          } catch (e) {}
           if (data.restaurant) {
             localStorage.setItem('saas_restaurant', JSON.stringify(data.restaurant));
             if (data.restaurant.slug) {
@@ -393,9 +396,7 @@ export default function CadastroRestaurantePage() {
         }
 
         const targetUrl = data.redirectUrl || '/restaurante';
-        window.history.pushState({}, '', targetUrl);
-        window.dispatchEvent(new PopStateEvent('popstate'));
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.location.href = targetUrl;
       } else {
         setError(
           data.error || 'Código inválido ou expirado. Verifique os dígitos informados.'
@@ -1269,19 +1270,10 @@ export default function CadastroRestaurantePage() {
                         />
                       </div>
 
-                      {/* Demo Hint for Testing */}
-                      <div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-xl border border-amber-300/80 bg-amber-50 px-3.5 py-2 text-xs font-medium text-amber-950">
-                        <span>
-                          Código de teste: <strong className="font-mono font-bold">123456</strong>{' '}
-                          ou o código recebido no e-mail
-                        </span>
-                        <button
-                          type="button"
-                          onClick={() => setOtpCode('123456')}
-                          className="rounded-lg bg-amber-500/25 px-2 py-0.5 text-[11px] font-bold text-amber-950 hover:bg-amber-500/40 transition-colors cursor-pointer"
-                        >
-                          Preencher 123456
-                        </button>
+                      {/* Security Notice */}
+                      <div className="flex items-center justify-center gap-2 text-xs text-slate-500 pt-1">
+                        <Lock className="h-3.5 w-3.5 text-slate-400" />
+                        <span>Código válido por 15 minutos • Verifique a caixa de entrada ou spam</span>
                       </div>
                     </div>
 
