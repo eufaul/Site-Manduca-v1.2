@@ -1,0 +1,50 @@
+{
+  "name": "Manduca — Cardápio Digital e Gestão de Delivery",
+  "short_name": "Manduca",
+  "description": "Sistema de gestão para restaurantes, cardápio digital e delivery próprio sem comissão por pedido.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1B110C",
+  "theme_color": "#F26A1B",
+  "icons": [
+    {
+      "src": "/assets/aistudio/favicon-16_7032b4b3.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/aistudio/favicon-32_607ccc37.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/aistudio/favicon-48_0d6918e3.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/aistudio/icon-192_99e5b99c.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/aistudio/icon-512_2468276a.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/aistudio/icon-512-maskable_bf4e01c6.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/aistudio/maskable-icon_7693e243.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Manduca — Cardápio Digital e Gestão de Delivery",
+  "description": "Cardápio digital, painel de pedidos com alerta sonoro, relatórios, entregadores com rota e domínio próprio. Sem comissão por pedido. 15 dias grátis. A partir de R$ 49/mês.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

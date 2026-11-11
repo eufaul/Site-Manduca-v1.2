@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #1B110C;
+  --ink-2: #2A1A12;
+  --brand: #F26A1B;
+  --brand-strong: #C2410C;
+  --amber: #FFB020;
+  --cream: #FFF7EC;
+  --sand: #F4E8D6;
+  --paper: #FFFFFF;
+  --ok: #1F9D63;
+  --muted-dark: rgba(217, 199, 184, 0.8);
+  --muted-light: #6B5B4E;
+}
+
+@theme {
+  --color-ink: #1B110C;
+  --color-ink-2: #2A1A12;
+  --color-brand: #F26A1B;
+  --color-brand-strong: #C2410C;
+  --color-amber: #FFB020;
+  --color-cream: #FFF7EC;
+  --color-sand: #F4E8D6;
+  --color-paper: #FFFFFF;
+  --color-ok: #1F9D63;
+  --color-muted-dark: rgba(217, 199, 184, 0.8);
+  --color-muted-light: #6B5B4E;
+
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  font-family: var(--font-sans);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  background-color: var(--paper);
+  overflow-x: hidden;
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+.heading-h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.heading-h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.heading-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+
+.reveal-block {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 220ms cubic-bezier(0.16, 1, 0.3, 1), transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-block.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal-block {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Custom range slider for the commission comparison */
+input[type="range"].manduca-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--sand);
+  outline: none;
+}
+
+input[type="range"].manduca-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--brand);
+  border: 3px solid var(--paper);
+  box-shadow: 0 2px 6px rgba(27, 17, 12, 0.25);
+  cursor: pointer;
+  transition: transform 150ms ease;
+}
+
+input[type="range"].manduca-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.08);
+}
+
+input[type="range"].manduca-slider:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* Remove default marker on details summary */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
